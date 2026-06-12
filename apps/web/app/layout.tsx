@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils"
-import { ConvexClientProvider } from "@workspace/ui/providers/convex-client-provider"
+import { ConvexClerkClientProvider } from "@workspace/ui/providers/convex-clerk-client-provider"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -29,9 +29,12 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ConvexClientProvider convexUrl={process.env.NEXT_PUBLIC_CONVEX_URL!}>
+        <ConvexClerkClientProvider
+          convexUrl={process.env.NEXT_PUBLIC_CONVEX_URL!}
+          clerkPublishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
+        >
           <ThemeProvider>{children}</ThemeProvider>
-        </ConvexClientProvider>
+        </ConvexClerkClientProvider>
       </body>
     </html>
   )

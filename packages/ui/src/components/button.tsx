@@ -1,5 +1,5 @@
-import { cn } from "@workspace/ui/lib/utils.js"
 import React from "react"
+import { cn } from "../lib/utils.js"
 
 export const Button = <T extends React.ElementType = "button">({
   children,
@@ -22,12 +22,19 @@ export const Button = <T extends React.ElementType = "button">({
     <Component
       {...props}
       className={cn(
-        "block rounded-xl px-6 py-2 text-center text-sm font-medium transition duration-150 active:scale-[0.98] sm:text-base",
+        // Base structure & smooth transitions
+        "group relative inline-flex items-center justify-center overflow-hidden rounded-xl px-6 py-2 text-center text-sm font-medium transition-all duration-200 sm:text-base",
+
+        // The Reversed Hover Effect: Starts normal, shifts and gains a sharp shadow on hover
+        "translate-x-0 translate-y-0 [box-shadow:0px_0px_rgb(82_82_82)] hover:-translate-x-[4px] hover:-translate-y-[4px] hover:[box-shadow:4px_4px_0px_rgb(82_82_82)] active:translate-x-0 active:translate-y-0 active:[box-shadow:0px_0px_rgb(82_82_82)]",
+
+        // Variants (Color styling)
         variant === "primary"
-          ? "bg-charcoal-900 text-white dark:bg-white dark:text-black"
+          ? "bg-charcoal-900 border-charcoal-900 border text-white dark:border-white dark:bg-white dark:text-black"
           : variant === "brand"
-            ? "bg-brand text-white"
-            : "border-divide border bg-white text-black transition duration-200 hover:bg-gray-300 dark:border-neutral-700 dark:bg-neutral-950 dark:text-white dark:hover:bg-neutral-800",
+            ? "bg-brand border-brand border text-white"
+            : "border-divide border bg-white text-black dark:border-neutral-700 dark:bg-neutral-950 dark:text-white",
+
         className
       )}
     >

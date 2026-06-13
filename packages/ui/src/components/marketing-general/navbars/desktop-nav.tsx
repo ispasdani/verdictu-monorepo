@@ -5,7 +5,11 @@ const DesktopNav = ({
   LinkComponent,
 }: {
   items: { title: string; href: string }[]
-  LinkComponent: ElementType<{ href: string; className?: string; children?: React.ReactNode }>
+  LinkComponent: ElementType<{
+    href: string
+    className?: string
+    children?: React.ReactNode
+  }>
 }) => {
   return (
     <div className="hidden items-center justify-between px-4 py-4 md:flex">
@@ -22,7 +26,6 @@ const DesktopNav = ({
         ))}
       </div>
       <div className="flex items-center gap-2">
-        <ModeToggle />
         <Button as={LinkComponent} href="/sign-up">
           Start building
         </Button>

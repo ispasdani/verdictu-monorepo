@@ -1,6 +1,7 @@
 import { ElementType } from "react"
+import { Button } from "../../button"
 
-const DesktopNav = ({
+export const DesktopNav = ({
   items,
   LinkComponent,
 }: {
@@ -13,7 +14,7 @@ const DesktopNav = ({
 }) => {
   return (
     <div className="hidden items-center justify-between px-4 py-4 md:flex">
-      <Logo />
+      {/* <Logo /> */}
       <div className="flex items-center gap-10">
         {items.map((item) => (
           <LinkComponent
@@ -26,9 +27,7 @@ const DesktopNav = ({
         ))}
       </div>
       <div className="flex items-center gap-2">
-        <Button as={LinkComponent} href="/sign-up">
-          Start building
-        </Button>
+        <Button>Start building</Button>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from "react"
-import { cn } from "../lib/utils.js"
+import { cn } from "../lib/utils"
 
 export const Button = <T extends React.ElementType = "button">({
   children,
@@ -30,7 +30,7 @@ export const Button = <T extends React.ElementType = "button">({
 
         // Variants (Color styling)
         variant === "primary"
-          ? "bg-charcoal-900 border-charcoal-900 border text-white dark:border-white dark:bg-white dark:text-black"
+          ? "bg-charcoal-900 border-charcoal-900 border text-black dark:border-white dark:bg-white dark:text-black"
           : variant === "brand"
             ? "bg-brand border-brand border text-white"
             : "border-divide border bg-white text-black dark:border-neutral-700 dark:bg-neutral-950 dark:text-white",

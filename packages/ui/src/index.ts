@@ -1,1 +1,1 @@
-export * from "./providers/convex-client-provider.js"
+export * from "./providers/convex-client-provider"

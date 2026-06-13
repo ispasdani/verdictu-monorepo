@@ -1,5 +1,7 @@
-import { Container } from "../container.js"
+import { Container } from "../container"
+import { DesktopNav } from "./desktop-nav"
 import { ElementType } from "react"
+import { items } from "./data"
 
 export const Navbar = ({
   LinkComponent,
@@ -12,7 +14,7 @@ export const Navbar = ({
 }) => {
   return (
     <Container as="nav" className="">
-      <div>test</div>
+      <DesktopNav LinkComponent={LinkComponent} items={items} />
     </Container>
   )
 }

@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google"
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils"
-import { ConvexClerkClientProvider } from "@workspace/ui/providers/convex-clerk-client-provider"
+import { ConvexClerkClientProvider } from "@/providers/convex-clerk-client-provider"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 

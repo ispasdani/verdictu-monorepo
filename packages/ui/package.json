@@ -14,9 +14,7 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.5.2",
     "class-variance-authority": "^0.7.1",
-    "clerk-js": "^0.0.1-security",
     "clsx": "^2.1.1",
     "lucide-react": "^1.17.0",
     "next-themes": "^0.4.6",

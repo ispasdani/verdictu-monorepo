@@ -13,7 +13,7 @@ export const Navbar = ({
   }>
 }) => {
   return (
-    <Container as="nav" className="">
+    <Container as="nav">
       <DesktopNav LinkComponent={LinkComponent} items={items} />
     </Container>
   )

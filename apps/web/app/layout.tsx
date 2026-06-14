@@ -28,12 +28,14 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <body>
+      <body className="font-primary h-full bg-white">
         <ConvexClerkClientProvider
           convexUrl={process.env.NEXT_PUBLIC_CONVEX_URL!}
           clerkPublishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}
         >
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <main className="h-full bg-white antialiased">{children}</main>
+          </ThemeProvider>
         </ConvexClerkClientProvider>
       </body>
     </html>

@@ -1,21 +1,23 @@
 import React from "react"
 import { cn } from "../lib/utils"
 
-export const Button = <T extends React.ElementType = "button">({
+type ButtonProps = {
+  children: React.ReactNode
+  variant?: "primary" | "secondary" | "brand"
+  className?: string
+  as?: React.ElementType
+  href?: string
+  target?: string
+  rel?: string
+} & Omit<React.HTMLAttributes<HTMLElement>, "color">
+
+export const Button = ({
   children,
   variant = "primary",
   className,
   as,
   ...props
-}: {
-  children: React.ReactNode
-  variant?: "primary" | "secondary" | "brand"
-  className?: string
-  as?: T
-} & Omit<
-  React.ComponentProps<T>,
-  "children" | "variant" | "className" | "as"
->) => {
+}: ButtonProps) => {
   const Component = as || "button"
 
   return (

@@ -1,6 +1,7 @@
 import { ElementType } from "react"
 import { Button } from "../../button"
 import { Logo } from "../../logo"
+import { Text } from "../../text"
 
 export const DesktopNav = ({
   items,
@@ -18,12 +19,10 @@ export const DesktopNav = ({
       <Logo />
       <div className="flex items-center gap-10">
         {items.map((item) => (
-          <LinkComponent
-            className="font-light text-gray-600 transition duration-200 hover:text-neutral-900 dark:text-gray-300 dark:hover:text-neutral-300"
-            href={item.href}
-            key={item.title}
-          >
-            {item.title}
+          <LinkComponent href={item.href} key={item.title} className="group">
+            <Text size="md" color="muted" weight="light" hoverColor="default">
+              {item.title}
+            </Text>
           </LinkComponent>
         ))}
       </div>

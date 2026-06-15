@@ -7,7 +7,7 @@ export const Navbar = () => {
   return (
     <Container as="nav">
       <DesktopNav items={items} />
-      <MobileNav items={items} />
+      
     </Container>
   )
 }

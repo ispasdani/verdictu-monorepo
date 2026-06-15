@@ -1,20 +1,17 @@
-import React, { ElementType, useState } from "react"
+"use client"
+
+import { useState } from "react"
+import Link from "next/link"
 import { AnimatePresence, motion } from "framer-motion"
-import { Button } from "../../button"
+import { Button } from "@workspace/ui/components/button"
+import { CloseIcon } from "@workspace/ui/components/icons/close-icon"
+import { HamburgerIcon } from "@workspace/ui/components/icons/hamburger-icon"
 import { Logo } from "../../logo"
-import { CloseIcon } from "../../icons/close-icon"
-import { HamburgerIcon } from "../../icons/hamburger-icon"
 
 export const MobileNav = ({
   items,
-  LinkComponent,
 }: {
   items: { title: string; href: string }[]
-  LinkComponent: ElementType<{
-    href: string
-    className?: string
-    children?: React.ReactNode
-  }>
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
@@ -49,7 +46,7 @@ export const MobileNav = ({
             </div>
             <div className="divide-divide border-divide mt-6 flex flex-col divide-y border-t">
               {items.map((item, index) => (
-                <LinkComponent
+                <Link
                   href={item.href}
                   key={item.title}
                   className="px-4 py-2 font-medium text-gray-600 transition duration-200 hover:text-neutral-900 dark:text-gray-300 dark:hover:text-neutral-300"
@@ -64,13 +61,13 @@ export const MobileNav = ({
                   >
                     {item.title}
                   </motion.div>
-                </LinkComponent>
+                </Link>
               ))}
               <div className="mt-4 p-4">
                 <Button
-                  onClick={() => setIsOpen(false)}
-                  as={LinkComponent}
+                  as={Link}
                   href="/sign-up"
+                  onClick={() => setIsOpen(false)}
                   className="w-full"
                 >
                   Start building

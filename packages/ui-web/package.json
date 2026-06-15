@@ -1,0 +1,33 @@
+{
+  "name": "@workspace/ui-web",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "next": ">=14.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "@workspace/ui": "*",
+    "framer-motion": "^12.40.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@workspace/eslint-config": "*",
+    "@workspace/typescript-config": "*",
+    "eslint": "^9",
+    "next": "16.2.6",
+    "typescript": "^5"
+  },
+  "exports": {
+    "./components/*": "./src/components/*.tsx"
+  }
+}

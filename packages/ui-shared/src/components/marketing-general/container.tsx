@@ -1,4 +1,4 @@
-import { cn } from "@workspace/ui/lib/utils"
+import { cn } from "../../lib/utils"
 
 export const Container = <T extends React.ElementType = "div">({
   children,

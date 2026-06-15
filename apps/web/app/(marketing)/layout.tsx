@@ -1,6 +1,5 @@
-import { Navbar } from "@workspace/ui/components/marketing-general/navbars/navbar"
+import { Navbar } from "@workspace/ui-web/components/marketing-general/navbars/navbar"
 import React from "react"
-import Link from "next/link"
 
 export default function MarketingLayout({
   children,
@@ -9,7 +8,7 @@ export default function MarketingLayout({
 }) {
   return (
     <div>
-      <Navbar LinkComponent={Link} />
+      <Navbar />
       {children}
     </div>
   )

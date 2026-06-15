@@ -1,7 +1,7 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@workspace/ui", "@workspace/ui-web"],
+  transpilePackages: ["@workspace/ui-shared", "@workspace/ui-web"],
   turbopack: {
     resolveExtensions: [".tsx", ".ts", ".jsx", ".js"],
   },

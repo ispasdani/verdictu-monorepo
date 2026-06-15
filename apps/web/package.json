@@ -16,7 +16,7 @@
     "@clerk/nextjs": "^7.5.2",
     "@workspace/api": "*",
     "@workspace/db": "*",
-    "@workspace/ui": "*",
+    "@workspace/ui-shared": "*",
     "@workspace/ui-web": "*",
     "convex": "^1.38.0",
     "lucide-react": "^1.17.0",

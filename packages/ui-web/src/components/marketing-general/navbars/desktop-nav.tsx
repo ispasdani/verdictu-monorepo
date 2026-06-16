@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Button } from "@workspace/ui-shared/components/button"
 import { Text } from "@workspace/ui-shared/components/text"
-import { Logo } from "../../logo"
+import { Logo } from "@workspace/ui-shared/components/logo"
+
 
 export const DesktopNav = ({
   items,

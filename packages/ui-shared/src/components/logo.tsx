@@ -1,4 +1,3 @@
-import Link from "next/link"
 
 export const LogoSVG = (props: React.SVGProps<SVGSVGElement>) => {
   return (
@@ -20,8 +19,8 @@ export const LogoSVG = (props: React.SVGProps<SVGSVGElement>) => {
 
 export const Logo = () => {
   return (
-    <Link href="/">
+    <a href="/">
       <LogoSVG className="w-30" />
-    </Link>
+    </a>
   )
 }

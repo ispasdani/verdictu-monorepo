@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Button } from "@workspace/ui-shared/components/button"
 import { CloseIcon } from "@workspace/ui-shared/components/icons/close-icon"
 import { HamburgerIcon } from "@workspace/ui-shared/components/icons/hamburger-icon"
-import { Logo } from "../../logo"
+import { Logo } from "@workspace/ui-shared/components/logo"
 
 export const MobileNav = ({
   items,

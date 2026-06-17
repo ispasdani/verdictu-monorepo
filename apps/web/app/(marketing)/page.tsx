@@ -1,5 +1,9 @@
-
+import { Hero } from "@workspace/ui-web/components/marketing-sections/hero/hero"
 
 export default function HomePage() {
-  return <div className="h-[300vh] bg-gray-100"></div>
+  return (
+    <div>
+      <Hero />
+    </div>
+  )
 }

@@ -3,14 +3,13 @@ import { Button } from "@workspace/ui-shared/components/button"
 import { Text } from "@workspace/ui-shared/components/text"
 import { Logo } from "@workspace/ui-shared/components/logo"
 
-
 export const DesktopNav = ({
   items,
 }: {
   items: { title: string; href: string }[]
 }) => {
   return (
-    <div className="hidden w-full items-center justify-between px-4 py-4 md:flex">
+    <div className="hidden h-[8vh] w-full items-center justify-between px-4 py-4 md:flex">
       <Logo />
       <div className="flex items-center gap-10">
         {items.map((item) => (
@@ -22,7 +21,9 @@ export const DesktopNav = ({
         ))}
       </div>
       <div className="flex items-center gap-2">
-        <Button as={Link} href="/sign-up">Try it now</Button>
+        <Button as={Link} href="/sign-up">
+          Try it now
+        </Button>
       </div>
     </div>
   )

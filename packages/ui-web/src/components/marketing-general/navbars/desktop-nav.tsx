@@ -22,7 +22,7 @@ export const DesktopNav = ({
         ))}
       </div>
       <div className="flex items-center gap-2">
-        <Button as={Link} href="/sign-up">Start building</Button>
+        <Button as={Link} href="/sign-up">Try it now</Button>
       </div>
     </div>
   )

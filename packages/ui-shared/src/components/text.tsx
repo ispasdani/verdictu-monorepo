@@ -2,6 +2,7 @@ import React from "react"
 import { cn } from "../lib/utils"
 
 type TextSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
+type TextFont = "sans" | "inter" | "lora" | "mono"
 type TextWeight = "thin" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold"
 type TextColor =
   | "default"
@@ -13,6 +14,13 @@ type TextColor =
   | "warning"
   | "danger"
   | "inherit"
+
+const fontClasses: Record<TextFont, string> = {
+  sans: "font-sans",
+  inter: "font-sans",
+  lora: "font-lora",
+  mono: "font-mono",
+}
 
 const sizeClasses: Record<TextSize, string> = {
   xs: "text-xs",
@@ -65,6 +73,8 @@ const hoverColorClasses: Record<TextColor, string> = {
 export type TextProps<T extends React.ElementType = "span"> = {
   /** Required: controls font size */
   size: TextSize
+  /** Font family — defaults to "sans" */
+  font?: TextFont
   /** Text color preset */
   color?: TextColor
   /** Font weight */
@@ -83,6 +93,7 @@ export type TextProps<T extends React.ElementType = "span"> = {
 
 export const Text = <T extends React.ElementType = "span">({
   size,
+  font = "sans",
   color = "default",
   weight = "normal",
   hoverColor,
@@ -98,6 +109,7 @@ export const Text = <T extends React.ElementType = "span">({
       {...props}
       className={cn(
         sizeClasses[size],
+        fontClasses[font],
         weightClasses[weight],
         colorClasses[color],
         "transition-colors duration-200",

@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Geist, Geist_Mono, Inter, Lora } from "next/font/google"
 
 import "@workspace/ui-shared/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -6,6 +6,8 @@ import { cn } from "@workspace/ui-shared/lib/utils"
 import { ConvexClerkClientProvider } from "@/providers/convex-clerk-client-provider"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
+
+const lora = Lora({ subsets: ["latin"], variable: "--font-lora" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -25,7 +27,8 @@ export default function RootLayout({
         "antialiased",
         fontMono.variable,
         "font-sans",
-        inter.variable
+        inter.variable,
+        lora.variable
       )}
     >
       <body className="font-primary h-full bg-white">

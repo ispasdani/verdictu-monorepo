@@ -15,7 +15,7 @@ export const DesktopNav = ({
       <div className="flex items-center gap-10">
         {items.map((item) => (
           <Link href={item.href} key={item.title} className="group">
-            <Text size="md" color="muted" weight="light" hoverColor="default">
+            <Text size="sm" color="muted" weight="light" hoverColor="default">
               {item.title}
             </Text>
           </Link>

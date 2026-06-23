@@ -1,46 +1,95 @@
 import React from "react"
 import { cn } from "../lib/utils"
 
-type ButtonProps = {
+type ButtonSize = "sm" | "md" | "lg"
+type ButtonVariant = "primary" | "secondary" | "link"
+
+type ButtonBaseProps = {
   children: React.ReactNode
-  variant?: "primary" | "secondary" | "brand"
+  variant?: ButtonVariant
+  size?: ButtonSize
+  /** Override the background color for the primary variant (any Tailwind bg-* class) */
+  bgColor?: string
   className?: string
-  as?: React.ElementType
+}
+
+type ButtonAsButton = ButtonBaseProps &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof ButtonBaseProps> & {
+    as?: "button"
+    href?: never
+  }
+
+type ButtonAsAnchor = ButtonBaseProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof ButtonBaseProps> & {
+    as: "a"
+    href?: string
+  }
+
+type ButtonAsOther = ButtonBaseProps & {
+  as: React.ElementType
   href?: string
-  target?: string
-  rel?: string
-} & Omit<React.HTMLAttributes<HTMLElement>, "color">
+  [key: string]: unknown
+}
+
+export type ButtonProps = ButtonAsButton | ButtonAsAnchor | ButtonAsOther
+
+const sizeClasses: Record<ButtonSize, string> = {
+  sm: "h-9 px-4 text-sm",
+  md: "h-11 px-6 text-sm sm:text-base",
+  lg: "h-13 px-8 text-base sm:text-lg",
+}
 
 export const Button = ({
   children,
   variant = "primary",
+  size = "md",
+  bgColor,
   className,
   as,
   ...props
 }: ButtonProps) => {
-  const Component = as || "button"
+  const Component = (as ?? "button") as React.ElementType
+
+  if (variant === "link") {
+    return (
+      <Component
+        {...props}
+        className={cn(
+          "group relative inline-flex items-center justify-center overflow-hidden text-sm font-medium text-neutral-900 transition-colors duration-200 dark:text-neutral-100",
+          "after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-[width] after:duration-300 hover:after:w-full",
+          className,
+        )}
+      >
+        {children}
+      </Component>
+    )
+  }
+
+  const isPrimary = variant === "primary"
 
   return (
     <Component
       {...props}
       className={cn(
-        // Base structure & smooth transitions
-        "group relative inline-flex items-center justify-center overflow-hidden rounded-xl px-6 py-2 text-center text-sm font-medium transition-all duration-200 sm:text-base",
-
-        // The Reversed Hover Effect: Starts normal, shifts and gains a sharp shadow on hover
-        "translate-x-0 translate-y-0 [box-shadow:0px_0px_rgb(82_82_82)] hover:-translate-x-[4px] hover:-translate-y-[4px] hover:[box-shadow:4px_4px_0px_rgb(82_82_82)] active:translate-x-0 active:translate-y-0 active:[box-shadow:0px_0px_rgb(82_82_82)]",
-
-        // Variants (Color styling)
-        variant === "primary"
-          ? "bg-charcoal-900 border-charcoal-900 border text-black dark:border-white dark:bg-white dark:text-black"
-          : variant === "brand"
-            ? "bg-brand border-brand border text-white"
-            : "border-divide border bg-white text-black dark:border-neutral-700 dark:bg-neutral-950 dark:text-white",
-
-        className
+        "group relative inline-flex items-center justify-center overflow-hidden rounded-lg font-medium transition-all duration-200",
+        sizeClasses[size],
+        isPrimary
+          ? cn(
+              "text-white",
+              bgColor ?? "bg-neutral-900",
+            )
+          : "border border-neutral-900 bg-white text-neutral-900 dark:border-white dark:bg-neutral-950 dark:text-white",
+        className,
       )}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
+      {/* Left-to-right overlay sweep */}
+      <div
+        className={cn(
+          "absolute inset-0 h-full w-0 transition-[width] duration-300 group-hover:w-full",
+          isPrimary ? "bg-white/20" : "bg-neutral-900/10 dark:bg-white/10",
+        )}
+      />
     </Component>
   )
 }

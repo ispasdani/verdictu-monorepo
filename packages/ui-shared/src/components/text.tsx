@@ -1,9 +1,27 @@
 import React from "react"
 import { cn } from "../lib/utils"
 
-type TextSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl"
+type TextSize =
+  | "xs"
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "3xl"
+  | "4xl"
+  | "5xl"
+  | "6xl"
+  | "9xl"
 type TextFont = "sans" | "inter" | "lora" | "mono"
-type TextWeight = "thin" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold"
+type TextWeight =
+  | "thin"
+  | "light"
+  | "normal"
+  | "medium"
+  | "semibold"
+  | "bold"
+  | "extrabold"
 type TextColor =
   | "default"
   | "muted"
@@ -33,6 +51,7 @@ const sizeClasses: Record<TextSize, string> = {
   "4xl": "text-4xl",
   "5xl": "text-5xl",
   "6xl": "text-6xl",
+  "9xl": "text-9xl",
 }
 
 const weightClasses: Record<TextWeight, string> = {
@@ -114,7 +133,7 @@ export const Text = <T extends React.ElementType = "span">({
         colorClasses[color],
         "transition-colors duration-200",
         hoverColor && hoverColorClasses[hoverColor],
-        className,
+        className
       )}
     >
       {children}
